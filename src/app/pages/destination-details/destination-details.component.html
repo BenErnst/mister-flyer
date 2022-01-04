@@ -1,7 +1,0 @@
-<section class="destination-details">
-  <h1>{{ destination.city }}</h1>
-  <p>{{ destination.flightDurationTo }}</p>
-  <h5>Temperature: {{ temperature | async }}°</h5>
-  <button (click)="onBack()">Back</button>
-  <img [src]="imgUrl | async" alt="" />
-</section>
