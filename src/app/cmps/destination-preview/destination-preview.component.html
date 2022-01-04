@@ -1,0 +1,17 @@
+<section
+  [routerLink]="[destination._id]"
+  class="destination-preview-container details-link"
+>
+  <section>
+    <strong>{{ destination.city }}</strong>
+    <p>Flight Duration: {{ destination.flightDurationTo }} Hours</p>
+
+    <img [src]="imgUrl | async" alt="" />
+  </section>
+
+  <section (click)="$event.stopPropagation()" class="edit-link">
+    <!-- <a [routerLink]="['edit', destination._id]">Edit</a> -->
+    <a href="">aaa</a>
+  </section>
+</section>
+<!-- <button (click)="onRemove.emit(pet._id)" class="remove-btn">X</button> -->

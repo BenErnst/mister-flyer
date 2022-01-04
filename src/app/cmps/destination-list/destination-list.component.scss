@@ -1,0 +1,10 @@
+.destination-list-container {
+  // background-color: rgb(139, 151, 115);
+  margin: auto;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(5, 250px);
+  margin: auto;
+}

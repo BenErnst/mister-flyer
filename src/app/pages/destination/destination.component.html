@@ -1,0 +1,34 @@
+<section>
+  <button (click)="changeView()">Change View</button>
+
+  <section *ngIf="isGridView; else mapContainer">
+    <destination-filter></destination-filter>
+
+    <a routerLink="edit">Add Destination</a>
+    <!-- <a [routerLink]="[edit, '5a56640259dv77128595v27t']">Add Destination</a>
+    [routerLink]="[destination._id]" -->
+
+    <destination-list [destinations]="destinations$ | async"></destination-list>
+  </section>
+
+  <ng-template #mapContainer>
+    <agm-map
+      [latitude]="mapCenter.lat"
+      [longitude]="mapCenter.lng"
+      [zoom]="2"
+      [mapTypeId]="'satellite'"
+      ><agm-marker
+        *ngFor="let destination of destinations$ | async"
+        [latitude]="destination.coords.lat"
+        [longitude]="destination.coords.lng"
+        title="{{ destination.city }}"
+        [label]="'💙'"
+        ><agm-info-window>
+          <h2>{{ destination.city }}</h2>
+          <h4>Flight Duration: {{ destination.flightDurationTo }} Hours</h4>
+          <img [src]="imgUrl | async" alt="" /> </agm-info-window></agm-marker
+    ></agm-map>
+  </ng-template>
+</section>
+<!-- (onRemove)="onRemovePet($event)" -->
+<!-- (mapClick)="onChoseLocation($event)" -->
